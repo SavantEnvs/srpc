@@ -1,0 +1,38 @@
+syntax = "proto3";
+package fuzzpb;
+
+enum Kind { K_ZERO = 0; K_ONE = 1; K_TWO = 2; }
+
+message Inner {
+	int64 id = 1;
+	string name = 2;
+	repeated sint32 vals = 3;
+}
+
+message FuzzRequest {
+	int32 i32 = 1;
+	uint64 u64 = 2;
+	double d = 3;
+	float f = 4;
+	bool b = 5;
+	string s = 6;
+	bytes data = 7;
+	Kind kind = 8;
+	Inner inner = 9;
+	repeated Inner items = 10;
+	map<string, Inner> table = 11;
+	oneof choice {
+		string text = 12;
+		fixed64 num = 13;
+	}
+}
+
+message FuzzResponse {
+	int32 code = 1;
+	string msg = 2;
+	repeated Inner items = 3;
+}
+
+service FuzzService {
+	rpc Call(FuzzRequest) returns (FuzzResponse);
+}

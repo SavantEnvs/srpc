@@ -1,0 +1,11 @@
+project: savantenvs/srpc
+target: thrift-request
+testsuite:
+  - https://$MAYHEM_DOMAIN/$MAYHEM_PROJECT/$MAYHEM_TARGET/testsuite.tar
+  - file://mayhem/thrift-request/testsuite
+# -malloc_limit_mb=64: the thrift readers size vector/string resizes from wire length fields, so
+# oversized allocations are reported at once instead of zeroing up to the RSS limit every exec.
+cmds:
+  - cmd: /mayhem/fuzz_thrift_request -malloc_limit_mb=64
+    libfuzzer: true
+    timeout: 10

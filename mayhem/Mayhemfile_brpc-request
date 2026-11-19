@@ -1,0 +1,9 @@
+project: savantenvs/srpc
+target: brpc-request
+testsuite:
+  - https://$MAYHEM_DOMAIN/$MAYHEM_PROJECT/$MAYHEM_TARGET/testsuite.tar
+  - file://mayhem/brpc-request/testsuite
+cmds:
+  - cmd: /mayhem/fuzz_brpc_request
+    libfuzzer: true
+    timeout: 10

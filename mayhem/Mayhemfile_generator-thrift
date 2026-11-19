@@ -1,0 +1,9 @@
+project: savantenvs/srpc
+target: generator-thrift
+testsuite:
+  - https://$MAYHEM_DOMAIN/$MAYHEM_PROJECT/$MAYHEM_TARGET/testsuite.tar
+  - file://mayhem/generator-thrift/testsuite
+cmds:
+  - cmd: /mayhem/fuzz_generator_thrift
+    libfuzzer: true
+    timeout: 10

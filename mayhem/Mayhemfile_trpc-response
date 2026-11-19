@@ -1,0 +1,9 @@
+project: savantenvs/srpc
+target: trpc-response
+testsuite:
+  - https://$MAYHEM_DOMAIN/$MAYHEM_PROJECT/$MAYHEM_TARGET/testsuite.tar
+  - file://mayhem/trpc-response/testsuite
+cmds:
+  - cmd: /mayhem/fuzz_trpc_response
+    libfuzzer: true
+    timeout: 10

@@ -1,0 +1,7 @@
+ÿPOST /FuzzService/Call HTTP/1.1
+Content-Type: application/json
+Content-Encoding: identity
+Content-Length: 218
+Connection: Keep-Alive
+
+{"i32":-7,"u64":"1234567890123","d":3.5,"f":1.25,"b":true,"s":"hello","data":"AAH/","kind":"K_TWO","inner":{"id":"42","name":"in","vals":[-3]},"items":[{"id":"1","vals":[5]}],"table":{"k":{"name":"v"}},"text":"choice"}
